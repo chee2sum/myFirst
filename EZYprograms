@@ -1,0 +1,73 @@
+public SubscriptionOutput createSubscription(BigDecimal charge, String subsType, String dayofWeekMoth, LocalDate startDate, LocalDate endDate) {
+
+      SubscriptionOutput subsOutput = new SubscriptionOutput();
+
+      ArrayList<LocalDate> invoiceDates = new ArrayList<LocalDate>();
+      
+      subsOutput.setAmount(charge);
+
+      subsOutput.setSubsType(subsType);
+
+      if(subsType.equals("WEEKLY"){
+        invoiceDates.add(startDate);
+        for(;;){
+             startDate = startDate.plusWeeks(1)
+             if(startDate.isAfter(endDate) {
+              exit;
+             } else{
+              invoiceDates.add(startDate);
+             }
+        }
+
+      }
+
+
+     if(subsType.equals("MONTHLY"){
+        invoiceDates.add(startDate);
+        for(;;){
+             startDate = startDate.plusMonths(1)
+             if(startDate.isAfter(endDate) {
+              exit;
+             } else{
+              invoiceDates.add(startDate);
+             }
+        }
+
+      }
+
+      subsOutput.setInvoiceDates(invoiceDates);
+
+
+      return subsOutput; 
+    }
+
+    public class SubscriptionOutput{
+	BigDecimal amount;
+        String subsType;
+        ArrayList<LocalDate> invoiceDates;  
+
+	public void setAmount( BigDecimal amount) {
+               this.amount=amount;
+        }
+
+        public BigDecimal getAmount() {
+               return this.amount;
+        }
+
+        public void setSubsType(String subsType) {
+               this.subsType=subsType;
+        }
+       
+         public String getSubsType() {
+               return this.subsType;
+        }
+
+        public void setInvoiceDates(ArrayList<LocalDate> invoiceDates) {
+               this.invoiceDates=invoiceDates;
+        }
+
+        public ArrayList<LocalDate> getInvoiceDates() {
+               return this.invoiceDates
+        }
+
+}
